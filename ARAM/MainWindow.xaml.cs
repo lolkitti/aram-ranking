@@ -35,6 +35,12 @@ namespace ARAM
         {
             var sum = new Summoner();
             string apikey = "RGAPI-6369a470-4345-458e-9a0d-1d9a036af1c2";
+            var client = new RiotWrapper.ApiCaller(apikey);
+            var summonerName = TbName.Text;
+            client.GetSummonerAsync(RiotWrapper.Region.EUW1, summonerName);
+
+            var level = sum.SummonerLevel;
+            LblLvl.Content = level;
         }
 
     }
